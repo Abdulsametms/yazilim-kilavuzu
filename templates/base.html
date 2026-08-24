@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Yazılım Kılavuzu | Akıllı Çözümler{% endblock %}</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0b0f19; color: #f3f4f6; }
+        .neon-glow { text-shadow: 0 0 15px rgba(0, 243, 255, 0.5); }
+        .neon-btn { background: #00f3ff; color: #0b0f19; transition: all 0.3s ease; }
+        .neon-btn:hover { box-shadow: 0 0 20px #00f3ff; background: #00d2df; }
+        .card-bg { background-color: #131b2e; border: 1px solid #1f293d; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+    
+    <!-- Üst Menü -->
+    <header class="flex justify-between items-center px-8 py-6 border-b border-gray-800">
+        <a href="/" class="text-2xl font-bold tracking-wider text-cyan-400">YAZILIM KILAVUZU</a>
+        <nav class="space-x-6 text-sm font-medium">
+            <a href="/" class="text-gray-400 hover:text-cyan-400">Ana Sayfa</a>
+            <a href="/urunler" class="text-gray-400 hover:text-cyan-400">Ürünlerimiz</a>
+            <a href="/iletisim" class="text-gray-400 hover:text-cyan-400">İletişim</a>
+            <a href="/yonetim" class="px-4 py-2 rounded border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black transition">Yönetim Paneli</a>
+        </nav>
+    </header>
+
+    <!-- Ana İçerik Alanı -->
+    <main class="flex-grow flex flex-col items-center text-center px-4 py-16 w-full">
+        <div class="max-w-4xl w-full mx-auto">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Alt Alan -->
+    <footer class="text-center py-6 border-t border-gray-800 text-gray-500 text-sm">
+        &copy; 2026 Yazılım Kılavuzu. Tüm hakları saklıdır.
+    </footer>
+<!-- Alt Alan -->
+    <footer class="text-center py-6 border-t border-gray-800 text-gray-500 text-sm">
+        &copy; 2026 Yazılım Kılavuzu. Tüm hakları saklıdır.
+    </footer>
+
+    <!-- Tawk.to Canlı Sohbet Kodu -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6a8853f342fdf13442d94456/1k0i8fs64';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!-- End of Tawk.to Script -->
+
+</body>
+</html>
+</body>
+</html>
