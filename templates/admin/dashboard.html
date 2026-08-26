@@ -18,7 +18,7 @@
         <div class="flex justify-between items-center mb-8">
             <div>
                 <h1 class="text-3xl font-bold text-cyan-400 neon-glow">Yönetim Paneli</h1>
-                <p class="text-xs text-gray-400 mt-1">Hoş geldiniz, <span class="text-cyan-300 font-semibold">{{ session.user }}</span></p>
+                <p class="text-xs text-gray-400 mt-1">Hoş geldiniz, <span class="text-cyan-300 font-semibold">{{ session.user }}</span> <span class="ml-2 px-2 py-0.5 bg-gray-800 text-cyan-400 rounded text-[10px] font-bold border border-cyan-900">Rol: {{ session.role }}</span></p>
             </div>
             <div class="space-x-4">
                 <a href="/" class="text-sm text-gray-400 hover:text-white transition">Siteye Dön</a>
@@ -140,7 +140,8 @@
                 </form>
             </section>
 
-            <!-- Yönetici Ekle & Listele / Sil -->
+            <!-- Yönetici Ekle & Listele / Sil (SADECE ADMIN GÖREBİLİR) -->
+            {% if session.role == 'Admin' %}
             <section class="card-bg p-6 rounded-xl border border-gray-700">
                 <h2 class="text-xl font-bold mb-4 text-white">Yönetici Hesapları</h2>
                 
@@ -175,11 +176,20 @@
                         <select name="role" class="w-full bg-gray-900 border border-gray-700 p-2 rounded-lg text-white text-xs focus:border-cyan-400 focus:outline-none">
                             <option value="Admin">Admin</option>
                             <option value="Editor">Editor</option>
+                            <option value="User">User</option>
                         </select>
                     </div>
                     <button type="submit" class="w-full bg-green-700 text-white font-bold py-2 rounded-lg hover:bg-green-600 transition text-xs">Kullanıcı Ekle</button>
                 </form>
             </section>
+            {% else %}
+            <!-- Normal Kullanıcılar İçin Bilgi Kutusu -->
+            <section class="card-bg p-6 rounded-xl border border-gray-700 flex flex-col justify-center items-center text-center">
+                <div class="text-cyan-400 text-4xl mb-2">🛡️</div>
+                <h2 class="text-lg font-bold text-white mb-2">Standart Kullanıcı Hesabı</h2>
+                <p class="text-xs text-gray-400">Yönetici ekleme/silme ve gelişmiş sistem rolleri yalnızca <strong class="text-cyan-300">Admin</strong> yetkisine sahip hesaplar tarafından görüntülenebilir.</p>
+            </section>
+            {% endif %}
 
         </div>
     </div>
