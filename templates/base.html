@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Yazılım Kılavuzu | Akıllı Çözümler{% endblock %}</title>
+    
+    <!-- Özel Logo (Favicon) Entegrasyonu -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -18,7 +22,11 @@
     
     <!-- Üst Menü -->
     <header class="flex flex-col md:flex-row justify-between items-center px-6 md:px-8 py-6 border-b border-gray-800 gap-4">
-        <a href="/" class="text-2xl font-bold tracking-wider text-cyan-400">YAZILIM KILAVUZU</a>
+        <a href="/" class="text-2xl font-bold tracking-wider text-cyan-400 flex items-center gap-2">
+            <!-- İsteğe bağlı olarak başlık yanına da küçük logo eklemek istersen diye bıraktım -->
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="w-8 h-8 object-contain rounded-md">
+            YAZILIM KILAVUZU
+        </a>
         <nav class="flex flex-wrap justify-center items-center gap-4 md:space-x-6 text-sm font-medium">
             <a href="/" class="text-gray-400 hover:text-cyan-400">Ana Sayfa</a>
             <a href="/urunler" class="text-gray-400 hover:text-cyan-400">Ürünlerimiz</a>
